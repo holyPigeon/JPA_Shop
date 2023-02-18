@@ -19,6 +19,9 @@ public class MemberController {
 
   private final MemberService memberService;
 
+  /**
+   * 회원 등록 페이지
+   */
   @GetMapping("/members/new")
   public String createForm(Model model) {
     model.addAttribute("memberForm", new MemberForm());
@@ -26,6 +29,9 @@ public class MemberController {
     return "members/createMemberForm";
   }
 
+  /**
+   * 회원 등록
+   */
   @PostMapping("/members/new")
   public String create(@Valid MemberForm form, BindingResult result) {
 
@@ -44,6 +50,9 @@ public class MemberController {
     return "redirect:/";
   }
 
+  /**
+   * 회원 목록 페이지
+   */
   @GetMapping("/members")
   public String list(Model model) {
     List<Member> members = memberService.findMembers();
