@@ -99,10 +99,7 @@ public class ItemController {
     */
 
     // 변경 감지를 이용한 수정 방법 -> em.find(itemId)로 영속성 엔티티를 가져온 후 그것을 수정하면 변경 감지가 되는 듯?
-    UpdateItemDTO itemDTO = new UpdateItemDTO();
-    itemDTO.setName(form.getName());
-    itemDTO.setPrice(form.getPrice());
-    itemDTO.setStockQuantity(form.getStockQuantity());
+    UpdateItemDTO itemDTO = new UpdateItemDTO(form.getName(), form.getPrice(), form.getStockQuantity());
 
     itemService.updateItem(itemId, itemDTO);
 
