@@ -47,7 +47,8 @@ public class OrderController {
   public String list(@ModelAttribute("OrderSearch")OrderSearch orderSearch, Model model) {
     List<Order> orders = orderService.findOrders(orderSearch);
     model.addAttribute("orders", orders);
-//    model.addAttribute("orderSearch", orderSearch); -> 위의 @ModelAttribute로 인해 해당 코드와 같은 효과가 있음
+    model.addAttribute("orderSearch", orderSearch);
+    // -> 위의 @ModelAttribute로 인해 해당 코드와 같은 효과가 있음
 
     return "order/orderList";
   }
